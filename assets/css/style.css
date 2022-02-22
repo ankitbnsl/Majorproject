@@ -1,0 +1,75 @@
+/* Style the outer container , align it in center , adjust its width */
+#container{
+    width:60vw;
+    margin-left: 20vw;
+    border: 1px solid black;
+}
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/* style input description tag , remove its default border,adjust width */
+#description{
+    border:0px; width: 100%; font-size: 1.5rem;
+}
+/* Remove description , category border on focus */
+#description:focus , #category:focus {
+        outline: none;
+}
+
+/* Make information horizontally */
+#information{
+    display: flex;
+}
+
+/* style category,date containers */
+#category-container,#date-container{
+    width: 50%; 
+    padding: 5px;
+    border-right: 1px solid black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+#category,#date{
+    font-size: 1.1rem;
+    width: 100%;
+    border:0px;
+}
+
+/* Syle add and delete buttons */
+#add,#delete{
+    padding: 10px; font-size: 1.1rem;
+    background-color: black; color: white;
+    width: 24%;
+    margin-left: 38%;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+/* Remove default list style */
+#list{
+    list-style: none;
+}
+/* Align list items horizontally */
+.list-item{
+    display: flex;
+    margin-bottom: 15px;
+}
+
+/* Add width ,marfin, fontsize to center part of list content */
+#center{
+    margin-left: 10px;
+    width:70%;
+    font-size: 1.2rem;
+}
+
+/* Design category of content wihich is assigned with id(right) */
+#right{
+  width: 12%; border:1px solid black;
+  padding: 8px;
+  font-size: 1.1rem;
+  background-color: red; color: white;
+  text-align: center;
+  border-radius: 10px;
+}

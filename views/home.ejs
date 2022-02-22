@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">  
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <title>Document</title>
+</head>
+<body>
+  <!-- Create outer container which stores all information -->
+  <div id="container">
+    <h1>Todo App</h1>
+   <hr>
+   
+    <div>
+      <!-- Form to get all data from user to store in database , it has 2 div inside it  -->
+      <form action="/contact" method="post">
+
+        <!-- div1 -->
+      <div> 
+         <p style="font-size: 1.2rem;"> <b> Description </b></p>
+        <input type="text" name="description" placeholder="What do you need to do?" id="description">
+      </div>
+      <hr>
+      
+      <!-- div2 , it has 2 entry option ie. categry and date-->
+      <div id="information">
+        <div id="category-container">
+          <p>Category</p>
+          <select name="category" id="category">
+            <option value="Personal">Personal</option>
+            <option value="work">work</option>
+            <option value="school">school</option>
+            <option value="clinic">clinic</option>
+            <option value="other">Other</option>
+         </select>
+  
+        </div>
+        <div id="date-container"> 
+          <p>Due Date</p>
+          <input type="date" name="date" id="date">
+        </div>
+       </div>
+       
+       <hr>
+       <!-- submit button to submit the form -->
+      <button type="submit" id="add"> <i class="fas fa-plus"></i> Add Task</button>
+      </form>
+    </div>
+
+    <!-- Another div which show all the list of items stored in database -->
+    <div>
+      <!-- Form created to pass the elements which are checked by user to delete them -->
+      <form action="/deletetask" method="get">
+
+        <!-- Submit button -->
+        <button type="submit" id="delete"> <i class="far fa-trash-alt"></i> Delete Tasks</button>
+        <div>
+
+          <!-- Unordered list , in which all list item gets placed -->
+          <ul id="list">
+            <% for(let a of todo_list){ %>
+              <!-- for every item create a list row -->
+
+               <li id="<%= a.id %>">
+                   <div class="list-item">
+                   
+                    <!-- List row contain 3 div , one has checbox , middle one has information , last div has category of data -->
+                  <div id="left" ><input type="checkbox" class="checkbox" name= "<%= a.id %>" id="<%= a.id %>" ></div>
+                 
+                  <div id="center"> 
+                    <div> <b><%= a.description %></b> </div>
+                    <div style="color: gray; margin-top: 5px;"> <i class="fas fa-calendar-week" ></i>
+                      <%= a.date.toDateString() %> </div>
+                    </div>
+
+                  <div id="right"><%= a.category %> </div>
+
+                </div>
+
+               </li>
+               <hr>
+                
+             <%  } %>  
+        </ul>
+    
+        </div>
+    
+      </form>
+    </div>
+
+  </div>
+
+    
+</body>
+</html>
