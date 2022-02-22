@@ -1,7 +1,7 @@
 // Get all required modules like express nad mongoose , set port to 3000
 const express=require('express');
 const app= express();
-const port=8000;
+const port= process.env.PORT || 8000;
 var mongo= require('./config/mongoose');
 
 // set up view engine as ejs
